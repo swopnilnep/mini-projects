@@ -55,10 +55,11 @@ def main():
     """)
 
     valid_op = ['+','-','*','/']
+    special_nums = ['e','pi']
     end = False
     calc = Calculation()
 
-    print("Enter operator or number ('end' to stop): ")
+    print("Enter operator or number ('end' to stop, 'r' to reset): ")
 
     while end == False: 
         
@@ -68,7 +69,13 @@ def main():
             end = True
         elif in_str in valid_op: 
             calc.operator = in_str
-        else:
+        # Incase of special numbers
+        elif in_str in special_nums:
+            if in_str == 'pi':
+                calc.value = 3.14159
+            elif in_str == 'e':
+                calc.value = 2.718281828
+            calc.calculate()
             try:
                 calc.value = float(in_str)
                 calc.calculate()

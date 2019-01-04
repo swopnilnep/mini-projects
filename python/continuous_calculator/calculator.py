@@ -76,6 +76,12 @@ def main():
             elif in_str == 'e':
                 calc.value = 2.718281828
             calc.calculate()
+        # Reset case
+        elif in_str == 'r':
+            calc.number = 0
+            calc.value = 0
+            calc.operator = None
+        else:
             try:
                 calc.value = float(in_str)
                 calc.calculate()
